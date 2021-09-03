@@ -65,4 +65,4 @@ router.route('/:id')
     .put(editStudentDetails)
     .delete(deleteStudent);
 
-module.exports = router
+module.exports = router //default export 

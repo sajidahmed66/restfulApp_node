@@ -22,4 +22,4 @@ const insertDbStudents = (student) => {
     })
 };
 
-module.exports.insertDbStudents = insertDbStudents;
+module.exports.insertDbStudents = insertDbStudents; // named export 
