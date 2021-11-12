@@ -25,14 +25,14 @@ learning Repo;
 
 
 
-### MongoDB Intregation :
+## MongoDB Intregation :
 
     add path variable to local system, 
     C:\Program Files\MongoDB\Server\4.4\bin
 
 after adding path variable , mongo-cli can be used from your command shell/bash shell
 
-#### start server : from shell run
+### start server : from shell run
 
         mongod.exe
 
@@ -44,25 +44,43 @@ now to connect your database: run this command from a new shell window
 
 we'll be taken to a mongo shell now diffrent shell command can be performed.
 
-create data base: 
+### create data base: 
         
         db.use.my-test
-A new db named my-test is created and switched to  my-test
+A new db named my-test is created if no db named 'my-test' is found and switched to  my-test.
 
-creating a colloction:
+### creating documents in a  colloction:
 
-        db.students.insertOne({...}) //creates one field in a collection named students
-        db.students.insertMany([{},{},...]) //
+        db.students.insertOne({...}) //creates one document in a collection named students
+        db.students.insertMany([{},{},...]) // to create multiple documents in a collection.
 
-reading a collection : 
 
-        db.students.find()  // finds a collection named students 
-
-Get list of all db in local:
+### Get list of all db in local:
         
         show dbs
 
 
-switch between database:
+### switch between database:
 
         use dbName
+### Queue from documents, 
+ 1. reading a collection : 
+
+        db.students.find()  // finds a collection named students 
+
+2. Condition based queue:
+   
+        doc link: https://docs.mongodb.com/mongodb-shell/crud/read/
+
+ 
+ `Any keyword starts with '$' is an operator`
+
+### performing Update operation. 
+
+
+### usung mongoose with mongodb and express
+
+ connecting to the db:
+    mongoose.connect("url_of_db",{extra_prapms})
+    
+ this is a callback function returns a promise

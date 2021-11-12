@@ -6,8 +6,8 @@ const studentRouter = require('./routers/studentsRouter')
 
 app.use(express.json()); // for parseing of Json data.
 
-app.use(express.urlencoded({ extended: true }));// parses data that is passed through the url like : id=1&&name=someThing
-app.use(express.static('public'))
+// app.use(express.urlencoded({ extended: true }));// parses data that is passed through the url like : id=1&&name=someThing
+// app.use(express.static('public'))
 
 
 app.use(morgan('dev'))
