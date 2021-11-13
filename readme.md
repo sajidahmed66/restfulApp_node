@@ -84,3 +84,8 @@ A new db named my-test is created if no db named 'my-test' is found and switched
     mongoose.connect("url_of_db",{extra_prapms})
     
  this is a callback function returns a promise
+
+ creation of  scheme--> model --> export model--> import model to controller(not sure)
+ --> conncet to database.
+
+  findbyId/findOne will return null if length of the id(string) passed as param is same as the actual lenght od id of an object in collection. so validation or error must be checked for that occurence.
