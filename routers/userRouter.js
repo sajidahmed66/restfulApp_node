@@ -9,7 +9,7 @@ const newUser = async (req, res) => {
     if (user) return res.status(400).send('User already exists');
 
     const { name, email, password } = req.body;
-    console.log(name, email, password);
+
 
     user = new User({
         name: req.body.name,
@@ -32,7 +32,7 @@ const newUser = async (req, res) => {
         return res.status(400).send(errorMesg);
     }
 
-}
+};
 
 router.route('/')
     .post(newUser);
