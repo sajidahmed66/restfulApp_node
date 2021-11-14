@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 const studentRouter = require('./routers/studentsRouter');
 const userRouter = require('./routers/userRouter');
+const authRouter = require('./routers/authRouter');
 
 
 //Mongoose connect
@@ -24,6 +25,7 @@ app.use(morgan('dev')); // for logging output.
 // routers 
 app.use('/api/students', studentRouter);
 app.use('/api/users', userRouter);
+app.use('/api/auth', authRouter);
 
 
 //initial route
