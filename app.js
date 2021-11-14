@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 const studentRouter = require('./routers/studentsRouter');
+const userRouter = require('./routers/userRouter');
+
 
 //Mongoose connect
 mongoose.connect('mongodb://localhost:27017/my-students-2', {
@@ -18,14 +20,10 @@ mongoose.connect('mongodb://localhost:27017/my-students-2', {
 app.use(express.json()); // for parseing of Json data.
 app.use(morgan('dev')); // for logging output.
 
-// parses data that is passed through the url like : id=1&&name=someThing
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.static('public'))
-
-
 
 // routers 
 app.use('/api/students', studentRouter);
+app.use('/api/users', userRouter);
 
 
 //initial route
