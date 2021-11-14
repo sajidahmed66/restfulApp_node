@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const { Schema, model } = require('mongoose');
 
 
@@ -22,6 +23,12 @@ const userSchema = Schema({
         maxlength: 1024
     }
 });
+
+//jwt token method
+userSchema.methods.generateAuthToken = function () {
+    const token = jwt.sign({ _id: this._id }, process.env.JWT_KEY);
+    return token;
+};
 
 const User = model('User', userSchema);
 

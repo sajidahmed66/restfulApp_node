@@ -1,8 +1,9 @@
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const app = require('./app');
-
 dotenv.config({ path: './config.env' });
+
+const app = require('./app');
+const mongoose = require('mongoose');
+
 
 // console.log(app.get('env')); // part of the express framework to get the environment variable
 // console.log(process.env)  // part of the node.js environment to get the environment variable

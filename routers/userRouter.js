@@ -23,7 +23,15 @@ const newUser = async (req, res) => {
 
     try {
         const result = await user.save();
-        res.send(result);
+        // generate token and send as response
+        const token = user.generateAuthToken();
+        res.send({
+            token: token,
+            data: {
+                name: user.name,
+                email: user.email
+            }
+        })
     } catch ({ errors }) {
         const errorMesg = [];
         for (field in errors) {

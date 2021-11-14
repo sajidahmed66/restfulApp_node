@@ -8,11 +8,11 @@ const userRouter = require('./routers/userRouter');
 const authRouter = require('./routers/authRouter');
 
 
-
 // middleware
 app.use(express.json()); // for parseing of Json data.
-app.use(morgan('dev')); // for logging output.
-
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev')); // for logging output.
+}
 
 // routers 
 app.use('/api/students', studentRouter);
