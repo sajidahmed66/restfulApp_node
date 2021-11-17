@@ -78,7 +78,7 @@ A new db named my-test is created if no db named 'my-test' is found and switched
 ### performing Update operation. 
 
 
-### usung mongoose with mongodb and express
+### usung mongoose with mongodb and express:
 
  connecting to the db:
     mongoose.connect("url_of_db",{extra_prapms})
@@ -89,3 +89,40 @@ A new db named my-test is created if no db named 'my-test' is found and switched
  --> conncet to database.
 
   findbyId/findOne will return null if length of the id(string) passed as param is same as the actual lenght od id of an object in collection. so validation or error must be checked for that occurence.
+
+### User Authentication & Authorization:
+        authentication : defination goes here
+         authorization : defination goes here
+Authentication:
+1. creaton of user.
+2. saving hash password in db.
+3. authentication of user (compaing hash password).
+4. generate Jwt.
+5. set environment variables and get secret for jwt from env.
+6. created a method in schema/model to generate jwt/authToken,
+7. send jwt by calling the method on the object
+
+Authorization:
+1. extract the token from req object.
+2. validate the token.
+3. Give access or send error mesg.
+4. Do all above processes as middlewere.
+5. Protect all route with middleware. Here the middlewere is the one to checks JWT and varifies the user and authorizes access to the content.
+
+NOTE: JWT secret is stored as environment variable. user of a third party libary called "dotenv" . And is processes must be initiated before express app loads.
+### Role based user authorization.
+Access to handle diffrent content based on role.
+
+1. field for diffent role at user/admin scheme.
+2. assign diffrent role at time of creation.
+3. have a midleware that checks the role and calls the next function.(well this turned out to be really simple)
+4. If a route takes multiple middleware pass them as array
+
+didn't test role based access in code (too lazy);
+
+======================================================================
+
+this marks the ending of the tutorial serie. Dated : 17-11-21;
+
+======================================================================
+

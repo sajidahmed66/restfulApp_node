@@ -10,8 +10,7 @@ module.exports = function (req, res, next) {
     //verify the token
     try {
         let decoded = jwt.verify(token, process.env.JWT_KEY);
-        console.log(decoded);
-        req.user = decoded;
+        req.user = decoded; // conatains the data that was set as payload in the token
         next();
     } catch (err) {
         return res.status(400).send("Invalid token");

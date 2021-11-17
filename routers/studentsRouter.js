@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { Student } = require('../models/students');
-const authorize = require('../middleware/athorize');
+const authorize = require('../middleware/authorize');
+const admin = require('../middleware/admin')
 
 const studentsList = async (req, res) => {
 
@@ -74,6 +75,6 @@ router.route('/')
 router.route('/:id')
     .get(studentsDetails)
     .put(editStudentDetails)
-    .delete(deleteStudent);
+    .delete([authorize, admin], deleteStudent);
 
 module.exports = router //default export nameless export
