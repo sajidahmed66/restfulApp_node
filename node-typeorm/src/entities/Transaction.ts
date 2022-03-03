@@ -9,7 +9,7 @@ import {
 import { Client } from "./Client";
 
 export enum TransactionType {
-  DEPOSIt = "deposit",
+  DEPOSIT = "deposit",
   WITHDRAW = "withdraw",
 }
 
