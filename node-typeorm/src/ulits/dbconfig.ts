@@ -2,6 +2,7 @@ import { createConnection } from "typeorm";
 import { Client } from "../entities/Client";
 import { Banker } from "../entities/Banker";
 import { Transaction } from "../entities/Transaction";
+import { Auth } from "../entities/Auth";
 
 export const main = async () => {
   try {
@@ -12,7 +13,7 @@ export const main = async () => {
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: [Client, Banker, Transaction],
+      entities: [Client, Banker, Transaction, Auth],
       synchronize: true,
     });
     console.log("Connected to database");
